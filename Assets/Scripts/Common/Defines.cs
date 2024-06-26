@@ -9,7 +9,8 @@ public static class Defines
 {
     //控制器相关的常量
     public static readonly string OpenStartView = "OpenStartView"; //开启开始面板
-    public static readonly string OpenSetView = "OpenSetView"; //开启开始面板
+    public static readonly string OpenSetView = "OpenSetView"; //
+    public static readonly string OpenMessageView = "OpenMessageView"; //
 
 
 }

@@ -31,6 +31,17 @@ public class StartView : BaseView
 
     private void onQuitGameBtn()
     {
-
+        Controller.ApplyControllerFunc(ControllerType.GameUI, Defines.OpenMessageView, new MessageInfo()
+        {
+            MsgTxt = "你是否要退出游戏？",
+            okCallback = delegate ()
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
+            }
+        });
     }
 }
