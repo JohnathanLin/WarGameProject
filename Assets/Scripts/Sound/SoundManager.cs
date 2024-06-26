@@ -10,15 +10,62 @@ public class SoundManager
 
     private Dictionary<string, AudioClip> clips; //ÒôÆµ»º´æ×Öµä
 
+    private bool isStop;
+
+    public bool IsStop
+    {
+        get { return isStop; }
+        set {
+            isStop = value;
+            if (isStop)
+            {
+                bgmSource.Pause();
+            }
+            else 
+            { 
+                bgmSource.Play();
+            }
+        }
+    }
+
+    private float bgmVolume;
+    public float BgmVolume
+    {
+        get { return bgmVolume; }
+        set
+        {
+            bgmVolume = value;
+            bgmSource.volume = bgmVolume;
+        }
+    }
+
+    private float effectVolume;
+    public float EffectVolume
+    {
+        get { return effectVolume; }
+        set
+        {
+            effectVolume = value;
+        }
+    }
     public SoundManager()
     {
         clips = new Dictionary<string, AudioClip>();
         bgmSource = GameObject.Find("game").GetComponent<AudioSource>();
+
+        isStop = false;
+        bgmVolume = 1;
+        effectVolume = 1;
     }
 
     //²¥·Åbgm
     public void PlayBGM(string res)
     {
+        if (isStop == true)
+        {
+            return;
+        }
+
         //Ã»ÓÐµ±Ç°×Öµä
         if (clips.ContainsKey(res) == false) 
         {
