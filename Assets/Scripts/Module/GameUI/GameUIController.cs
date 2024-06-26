@@ -24,6 +24,7 @@ public class GameUIController : BaseController
         {
             PrefabName = "SetView",
             controller = this,
+            Sorting_Order = 1,
             parentTf = GameApp.ViewManager.canvasTf
         });
 
