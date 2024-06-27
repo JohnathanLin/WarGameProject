@@ -8,9 +8,19 @@ public class GameScene : MonoBehaviour
 {
     public Texture2D mouseTxt; //鼠标图片
     float dt;
+
+    private static bool isLoaded = false;
     private void Awake()
     {
-        GameApp.Instance.Init();
+        if (isLoaded)
+        {
+            Destroy(gameObject);
+        } else
+        {
+            isLoaded = true;
+            DontDestroyOnLoad(gameObject);
+            GameApp.Instance.Init();
+        }
     }
 
     // Start is called before the first frame update
@@ -31,6 +41,7 @@ public class GameScene : MonoBehaviour
     {
         GameApp.ControllerManager.Register(ControllerType.GameUI, new GameUIController());
         GameApp.ControllerManager.Register(ControllerType.Game, new GameController());
+        GameApp.ControllerManager.Register(ControllerType.Loading, new LoadingController());
     }
 
     //执行所有控制器初始化

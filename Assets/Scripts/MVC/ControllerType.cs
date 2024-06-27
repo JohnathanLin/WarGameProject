@@ -8,5 +8,6 @@ using UnityEngine;
 public enum ControllerType
 {
     GameUI,
-    Game
+    Game,
+    Loading,
 }

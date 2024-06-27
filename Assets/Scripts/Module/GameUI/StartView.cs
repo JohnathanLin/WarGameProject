@@ -20,7 +20,12 @@ public class StartView : BaseView
     //开始游戏
     private void onStartGameBtn()
     {
+        //关闭开始界面
+        GameApp.ViewManager.Close(ViewId);
 
+        LoadingModel loadingModel = new LoadingModel();
+        loadingModel.SceneName = "map";
+        Controller.ApplyControllerFunc(ControllerType.Loading, Defines.LoadingScene, loadingModel);
     }
 
     //设置按钮
