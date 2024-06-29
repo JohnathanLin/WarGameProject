@@ -11,6 +11,7 @@ public static class Defines
     public static readonly string OpenStartView = "OpenStartView"; //开启开始面板
     public static readonly string OpenSetView = "OpenSetView"; //
     public static readonly string OpenMessageView = "OpenMessageView"; //
+    public static readonly string OpenSelectLevelView = "OpenSelectLevelView"; //
     public static readonly string LoadingScene = "LoadingScene";
 
 

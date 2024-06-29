@@ -8,4 +8,5 @@ public enum ViewType
     SetView,
     MessageView,
     LoadingView,
+    SelectLevelView,
 }

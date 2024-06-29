@@ -29,7 +29,7 @@ public class BaseView : MonoBehaviour, IBaseView
 
     }
 
-    protected void OnStart()
+    protected virtual void OnStart()
     {
 
     }
