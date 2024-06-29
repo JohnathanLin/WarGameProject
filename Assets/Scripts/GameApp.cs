@@ -12,10 +12,13 @@ public class GameApp:Singleton<GameApp>
     public static ControllerManager ControllerManager; //控制器管理器定义
 
     public static ViewManager ViewManager; //视图管理器定义
+
+    public static ConfigManager ConfigManager; //配置表管理器定义
     public override void Init()
     {
         SoundManager = new SoundManager();
         ControllerManager = new ControllerManager();
         ViewManager = new ViewManager();
+        ConfigManager = new ConfigManager();
     }
 }

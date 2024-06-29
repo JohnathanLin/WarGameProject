@@ -28,6 +28,17 @@ public class GameScene : MonoBehaviour
     {
         //…Ë÷√ Û±Í—˘ Ω
         Cursor.SetCursor(mouseTxt, Vector2.zero, CursorMode.Auto);
+
+        //◊¢≤·≈‰÷√±Ì
+        RegisterConfigs();
+
+        GameApp.ConfigManager.LoadAllConfigs(); //º”‘ÿ≈‰÷√±Ì
+
+        //≤‚ ‘≈‰÷√±Ì
+        ConfigData enemyConfig = GameApp.ConfigManager.GetConfigData("enemy");
+        string name = enemyConfig.getDataById(10001)["Name"];
+        Debug.Log(name);
+
         //≤•∑≈“Ù¿÷
         GameApp.SoundManager.PlayBGM("login");
 
@@ -55,5 +66,15 @@ public class GameScene : MonoBehaviour
     {
         dt = Time.deltaTime;
         GameApp.Instance.Update(dt);   
+    }
+
+    void RegisterConfigs()
+    {
+        GameApp.ConfigManager.Register("enemy", new ConfigData("enemy"));
+        GameApp.ConfigManager.Register("level", new ConfigData("level"));
+        GameApp.ConfigManager.Register("option", new ConfigData("option"));
+        GameApp.ConfigManager.Register("player", new ConfigData("player"));
+        GameApp.ConfigManager.Register("role", new ConfigData("role"));
+        GameApp.ConfigManager.Register("skill", new ConfigData("skill"));
     }
 }
