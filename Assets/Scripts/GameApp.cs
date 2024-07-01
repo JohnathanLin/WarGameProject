@@ -16,6 +16,8 @@ public class GameApp:Singleton<GameApp>
     public static ConfigManager ConfigManager; //配置表管理器定义
 
     public static CameraManager CameraManager;
+
+    public static MessageCenter MessageCenter;
     public override void Init()
     {
         SoundManager = new SoundManager();
@@ -23,5 +25,6 @@ public class GameApp:Singleton<GameApp>
         ViewManager = new ViewManager();
         ConfigManager = new ConfigManager();
         CameraManager = new CameraManager();
+        MessageCenter = new MessageCenter();
     }
 }
