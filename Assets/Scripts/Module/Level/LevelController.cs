@@ -15,6 +15,18 @@ public class LevelController : BaseController
         });
 
         InitModuleEvent();
+        InitGlobalEvent();
+    }
+
+    public override void InitGlobalEvent()
+    {
+        GameApp.MessageCenter.AddEvent(Defines.ShowLevelDesEvent, onShowSelectLevelDes);
+        GameApp.MessageCenter.AddEvent(Defines.HideLevelDesEvent, onHideSelectLevelDes);
+    }
+
+    public override void RemoveGlobalEvent()
+    {
+      
     }
 
     public override void InitModuleEvent()
@@ -22,6 +34,17 @@ public class LevelController : BaseController
         RegisterFunc(Defines.OpenSelectLevelView, onOpenSelectLevelView);
     }
 
+    private void onShowSelectLevelDes(System.Object arg)
+    {
+        Debug.Log((int)arg);
+        GameApp.ViewManager.GetView<SelectLevelView>((int)ViewType.SelectLevelView).ShowLevelDes();
+    }
+
+    private void onHideSelectLevelDes(System.Object arg)
+    {
+        GameApp.ViewManager.GetView<SelectLevelView>((int)ViewType.SelectLevelView).HideLevelDes();
+    }
+         
     private void onOpenSelectLevelView(System.Object[] args)
     {
         GameApp.ViewManager.Open(ViewType.SelectLevelView);

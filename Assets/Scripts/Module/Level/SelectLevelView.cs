@@ -22,4 +22,14 @@ public class SelectLevelView : BaseView
         };
         Controller.ApplyControllerFunc(ControllerType.Loading, Defines.LoadingScene, loadingModel);
     }
+
+    public void ShowLevelDes()
+    {
+        Find("level").SetActive(true);
+    }
+
+    public void HideLevelDes()
+    {
+        Find("level").SetActive(false);
+    }
 }

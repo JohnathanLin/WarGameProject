@@ -14,5 +14,8 @@ public static class Defines
     public static readonly string OpenSelectLevelView = "OpenSelectLevelView"; //
     public static readonly string LoadingScene = "LoadingScene";
 
+    //全局事件
+    public static readonly string ShowLevelDesEvent = "ShowLevelDesEvent";
+    public static readonly string HideLevelDesEvent = "HideLevelDesEvent";
 
 }
