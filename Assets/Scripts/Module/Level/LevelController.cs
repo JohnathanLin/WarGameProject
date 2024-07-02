@@ -6,6 +6,8 @@ public class LevelController : BaseController
 {
     public LevelController() : base()
     {
+        SetModel(new LevelModel());
+
         //◊¢≤· ”Õº
         GameApp.ViewManager.Register(ViewType.SelectLevelView, new ViewInfo()
         {
@@ -16,6 +18,11 @@ public class LevelController : BaseController
 
         InitModuleEvent();
         InitGlobalEvent();
+    }
+
+    public override void Init()
+    {
+        model.Init();
     }
 
     public override void InitGlobalEvent()
@@ -37,6 +44,9 @@ public class LevelController : BaseController
     private void onShowSelectLevelDes(System.Object arg)
     {
         Debug.Log((int)arg);
+        LevelModel levelModel = GetModel<LevelModel>();
+        levelModel.current = levelModel.GetLevel((int)arg);
+
         GameApp.ViewManager.GetView<SelectLevelView>((int)ViewType.SelectLevelView).ShowLevelDes();
     }
 

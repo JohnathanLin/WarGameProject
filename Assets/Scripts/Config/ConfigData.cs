@@ -19,7 +19,7 @@ public class ConfigData
 
     public void Load(string txt)
     {
-        string[] dataArr = txt.Split("\n");
+        string[] dataArr = txt.Split("\r\n");
         string[] title = dataArr[0].Split(",");
        
         for (int i = 2;i < dataArr.Length;i++)

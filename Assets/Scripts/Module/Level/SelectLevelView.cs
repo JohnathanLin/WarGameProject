@@ -26,6 +26,9 @@ public class SelectLevelView : BaseView
     public void ShowLevelDes()
     {
         Find("level").SetActive(true);
+        LevelData levelData = Controller.GetModel<LevelModel>().current;
+        Find<Text>("level/name/txt").text = levelData.Name;
+        Find<Text>("level/des/txt").text = levelData.Des;
     }
 
     public void HideLevelDes()
