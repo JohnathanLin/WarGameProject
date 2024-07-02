@@ -11,4 +11,5 @@ public enum ControllerType
     Game,
     Loading,
     Level,
+    Fight,
 }

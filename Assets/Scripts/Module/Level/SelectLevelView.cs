@@ -8,6 +8,7 @@ public class SelectLevelView : BaseView
     protected override void OnStart()
     {
         Find<Button>("close").onClick.AddListener(onCloseBtn);
+        Find<Button>("level/fightBtn").onClick.AddListener(onFightBtn);
     }
 
     private void onCloseBtn()
@@ -34,5 +35,20 @@ public class SelectLevelView : BaseView
     public void HideLevelDes()
     {
         Find("level").SetActive(false);
+    }
+
+    private void onFightBtn()
+    {
+        GameApp.ViewManager.Close(ViewId);
+
+        GameApp.CameraManager.ResetPos();
+
+        LoadingModel loadingModel = new LoadingModel();
+        loadingModel.SceneName = Controller.GetModel<LevelModel>().current.SceneName;
+        loadingModel.callback = delegate ()
+        {
+            Controller.ApplyControllerFunc(ControllerType.Fight, Defines.BeginFight);
+        };
+        Controller.ApplyControllerFunc(ControllerType.Loading, Defines.LoadingScene, loadingModel);
     }
 }
