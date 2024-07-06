@@ -30,6 +30,9 @@ public class FightController : BaseController
 
     private void onBeginFightCallback(System.Object []args)
     {
+        //Ω¯»Î’Ω∂∑
+        GameApp.FightWorldManager.ChangeState(GameState.Enter);
+
         GameApp.ViewManager.Open(ViewType.FightView);
         GameApp.ViewManager.Open(ViewType.FightSelectHeroView);
     }

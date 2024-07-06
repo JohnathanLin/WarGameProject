@@ -22,6 +22,8 @@ public class GameApp:Singleton<GameApp>
     public static TimerManager TimerManager;
 
     public static FightWorldManager FightWorldManager;
+
+    public static MapManager MapManager;
     public override void Init()
     {
         SoundManager = new SoundManager();
@@ -32,6 +34,7 @@ public class GameApp:Singleton<GameApp>
         MessageCenter = new MessageCenter();
         TimerManager = new TimerManager();
         FightWorldManager = new FightWorldManager();
+        MapManager = new MapManager();
     }
 
     public override void Update(float dt)

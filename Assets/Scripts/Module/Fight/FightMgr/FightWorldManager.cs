@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum GameState
 {
-    Idle
+    Idle,
+    Enter,
 }
 /// <summary>
 /// 战斗管理器（用于管理战斗相关的实体（敌人、英雄、地图、格子等））
@@ -49,6 +50,9 @@ public class FightWorldManager
         {
             case GameState.Idle:
                 _current = new FightIdle();
+                break;
+            case GameState.Enter:
+                _current = new FightEnter();
                 break;
         }
 
