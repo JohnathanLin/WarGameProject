@@ -20,6 +20,8 @@ public class GameApp:Singleton<GameApp>
     public static MessageCenter MessageCenter;
 
     public static TimerManager TimerManager;
+
+    public static FightWorldManager FightWorldManager;
     public override void Init()
     {
         SoundManager = new SoundManager();
@@ -29,10 +31,12 @@ public class GameApp:Singleton<GameApp>
         CameraManager = new CameraManager();
         MessageCenter = new MessageCenter();
         TimerManager = new TimerManager();
+        FightWorldManager = new FightWorldManager();
     }
 
     public override void Update(float dt)
     {
         TimerManager.OnUpdate(dt);
+        FightWorldManager.Update(dt);
     }
 }
