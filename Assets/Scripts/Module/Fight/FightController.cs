@@ -21,6 +21,14 @@ public class FightController : BaseController
             Sorting_Order = 1,
         });
 
+        GameApp.ViewManager.Register(ViewType.DragHeroView, new ViewInfo()
+        {
+            PrefabName = "DragHeroView",
+            controller = this,
+            parentTf = GameApp.ViewManager.worldCanvasTf,
+            Sorting_Order = 2,
+        });
+
         InitModuleEvent();
     }
     public override void InitModuleEvent()
