@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,9 +16,11 @@ public class FightWorldManager
     public GameState state = GameState.Idle;
 
     private FightUnitBase current;
+    public List<Hero> heroList; //战斗中的英雄集合
 
     public FightWorldManager()
     {
+        heroList = new List<Hero>();
         ChangeState(GameState.Idle);
     }
 
@@ -57,6 +60,19 @@ public class FightWorldManager
         }
 
         _current.Init();
+    }
+
+    //添加英雄
+    public void AddHero(Block b, Dictionary<string, string> data)
+    {
+        GameObject obj = UnityEngine.Object.Instantiate(Resources.Load($"Model/{data["Model"]}")) as GameObject;
+        obj.transform.position = new Vector3(b.transform.position.x, b.transform.position.y, -1);
+        Debug.Log("最终放置的位置：" + obj.transform.position);
+        Hero hero = obj.AddComponent<Hero>();
+        hero.Init(data, b.RowIndex, b.ColIndex);
+        b.Type = BlockType.Obstacle;
+
+        heroList.Add(hero);
     }
 }
 
