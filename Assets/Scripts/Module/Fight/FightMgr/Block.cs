@@ -18,12 +18,23 @@ public class Block : MonoBehaviour
     private SpriteRenderer gridSp; //网格图片
     private SpriteRenderer dirSp; //移动方向图片
 
-    public void Awake()
+    private void Awake()
     {
         selectSp = transform.Find("select").GetComponent<SpriteRenderer>();
         gridSp = transform.Find("grid").GetComponent<SpriteRenderer>();
         dirSp = transform.Find("dir").GetComponent<SpriteRenderer>();
 
+        GameApp.MessageCenter.AddEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+    }
+
+    private void OnDestroy()
+    {
+        GameApp.MessageCenter.RemoveEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+    }
+
+    void OnSelectCallBack(System.Object args)
+    {
+        GameApp.MessageCenter.PostEvent(Defines.OnUnSelectEvent);
     }
 
     private void OnMouseEnter()

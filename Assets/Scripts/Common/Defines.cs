@@ -19,4 +19,7 @@ public static class Defines
     public static readonly string ShowLevelDesEvent = "ShowLevelDesEvent";
     public static readonly string HideLevelDesEvent = "HideLevelDesEvent";
 
+    public static readonly string OnSelectEvent = "OnSelectEvent"; //选中事件
+    public static readonly string OnUnSelectEvent = "OnUnSelectEvent"; //未选中事件
+
 }

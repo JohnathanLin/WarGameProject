@@ -26,14 +26,40 @@ public class ModelBase : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        
+        AddEvents();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void OnDestroy()
     {
-        
+        RemoveEvents();
+    }
+
+    protected virtual void AddEvents()
+    {
+        GameApp.MessageCenter.AddEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+        GameApp.MessageCenter.AddEvent(Defines.OnUnSelectEvent, OnUnSelectCallBack);
+    }
+
+    protected virtual void RemoveEvents() 
+    {
+        GameApp.MessageCenter.RemoveEvent(Defines.OnSelectEvent, OnSelectCallBack);
+        GameApp.MessageCenter.RemoveEvent(Defines.OnUnSelectEvent, OnUnSelectCallBack);
+    }
+
+    //选中回调
+    protected virtual void OnSelectCallBack(System.Object args)
+    {
+        //执行未选中
+        GameApp.MessageCenter.PostEvent(Defines.OnUnSelectEvent);
+        //test
+        bodySp.color = Color.red;
+    }
+
+    //未选中回调
+    protected virtual void OnUnSelectCallBack(System.Object args)
+    {
+        bodySp.color = Color.white;
     }
 }

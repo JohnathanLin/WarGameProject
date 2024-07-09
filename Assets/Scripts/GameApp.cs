@@ -26,6 +26,8 @@ public class GameApp:Singleton<GameApp>
     public static MapManager MapManager;
 
     public static GameDataManager GameDataManager;
+
+    public static UserInputManager UserInputManager;
     public override void Init()
     {
         SoundManager = new SoundManager();
@@ -38,11 +40,13 @@ public class GameApp:Singleton<GameApp>
         FightWorldManager = new FightWorldManager();
         MapManager = new MapManager();
         GameDataManager = new GameDataManager();
+        UserInputManager = new UserInputManager();
     }
 
     public override void Update(float dt)
     {
         TimerManager.OnUpdate(dt);
         FightWorldManager.Update(dt);
+        UserInputManager.Update();
     }
 }
