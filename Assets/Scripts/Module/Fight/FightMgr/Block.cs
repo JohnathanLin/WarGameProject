@@ -32,6 +32,17 @@ public class Block : MonoBehaviour
         GameApp.MessageCenter.RemoveEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
     }
 
+    public void ShowGrid(Color color)
+    {
+        gridSp.enabled = true;
+        gridSp.color = color;
+    }
+
+    public void HideGrid()
+    {
+        gridSp.enabled = false; 
+    }
+
     void OnSelectCallBack(System.Object args)
     {
         GameApp.MessageCenter.PostEvent(Defines.OnUnSelectEvent);
