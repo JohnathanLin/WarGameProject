@@ -35,7 +35,7 @@ public class ConfigData
       
     }
 
-    public Dictionary<string, string> getDataById(int id)
+    public Dictionary<string, string> GetDataById(int id)
     {
         return datas[id];
     }

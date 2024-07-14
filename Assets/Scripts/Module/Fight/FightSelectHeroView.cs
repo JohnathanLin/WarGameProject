@@ -14,7 +14,7 @@ public class FightSelectHeroView : BaseView
 
         for (int i = 0; i < GameApp.GameDataManager.heroList.Count; i++)
         {
-            Dictionary<string, string> data = GameApp.ConfigManager.GetConfigData("player").getDataById(GameApp.GameDataManager.heroList[i]);
+            Dictionary<string, string> data = GameApp.ConfigManager.GetConfigData("player").GetDataById(GameApp.GameDataManager.heroList[i]);
 
             GameObject obj = Object.Instantiate(prefabObj, gridTf);
             

@@ -36,7 +36,7 @@ public class GameScene : MonoBehaviour
 
         //≤‚ ‘≈‰÷√±Ì
         ConfigData enemyConfig = GameApp.ConfigManager.GetConfigData("level");
-        string name = enemyConfig.getDataById(1001)["Des"];
+        string name = enemyConfig.GetDataById(1001)["Des"];
         Debug.Log(name);
 
         //≤•∑≈“Ù¿÷
