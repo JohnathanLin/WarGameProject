@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 170626336}
   m_Layer: 0
   m_Name: emo (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3169,7 +3169,7 @@ GameObject:
   - component: {fileID: 1072806245}
   m_Layer: 0
   m_Name: emo (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4251,7 +4251,7 @@ GameObject:
   - component: {fileID: 8105136154991892797}
   m_Layer: 0
   m_Name: emo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

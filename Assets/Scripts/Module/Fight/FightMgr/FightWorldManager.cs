@@ -18,9 +18,14 @@ public class FightWorldManager
     private FightUnitBase current;
     public List<Hero> heroList; //战斗中的英雄集合
 
+    public List<Enemy> enemyList; //怪物集合
+
+    public int RoundCount; //回合数
+
     public FightWorldManager()
     {
         heroList = new List<Hero>();
+        enemyList = new List<Enemy>();
         ChangeState(GameState.Idle);
     }
 
@@ -29,6 +34,21 @@ public class FightWorldManager
         get
         {
             return current;
+        }
+    }
+
+    //进入战斗 初始化 一些信息 敌人信息
+    public void EnterFight()
+    {
+        RoundCount = 1;
+        heroList = new List<Hero>();
+        enemyList = new List<Enemy>();
+        //将场景中的敌人脚本进行存储
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Enemy"); // 给怪物添加Enemy标签
+        Debug.Log("Enemy objs length: " + objs.Length);
+        for (int i = 0; i < objs.Length; i++)
+        {
+            enemyList.Add(objs[i].GetComponent<Enemy>());
         }
     }
 
