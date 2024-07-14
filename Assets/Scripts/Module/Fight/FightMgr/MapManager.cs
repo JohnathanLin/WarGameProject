@@ -68,7 +68,7 @@ public class MapManager
 
         for (int i = 0; i < points.Count; i++)
         {
-            mapArr[points[i].RowIndex, points[i].ColIndex].ShowGrid(Color.green);
+            mapArr[points[i].RowIndex, points[i].ColIndex].ShowGrid(Color.blue);
         }
     }
 

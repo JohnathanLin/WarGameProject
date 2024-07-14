@@ -16,4 +16,21 @@ public class Enemy : ModelBase
         MaxHp = int.Parse(this.data["Hp"]);
         CurHp = MaxHp;
     }
+
+    //选中
+    protected override void OnSelectCallBack(System.Object args)
+    {
+        base.OnSelectCallBack(args);
+
+        GameApp.ViewManager.Open(ViewType.EnemyDesView, this);
+    }
+
+    //未选中
+    protected override void OnUnSelectCallBack(System.Object args)
+    {
+        base.OnUnSelectCallBack(args);
+
+
+        GameApp.ViewManager.Close(ViewType.EnemyDesView);
+    }
 }

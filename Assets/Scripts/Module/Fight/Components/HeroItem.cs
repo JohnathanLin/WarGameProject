@@ -31,7 +31,7 @@ public class HeroItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     //结束拖拽
     public void OnEndDrag(PointerEventData eventData)
     {
-        GameApp.ViewManager.Close((int)ViewType.DragHeroView);
+        GameApp.ViewManager.Close(ViewType.DragHeroView);
         //检测拖拽后的位置是否有block脚本
         Tools.ScreenPointToRay2D(eventData.pressEventCamera, eventData.position, delegate(Collider2D col)
         {
