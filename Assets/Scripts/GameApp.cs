@@ -28,6 +28,8 @@ public class GameApp:Singleton<GameApp>
     public static GameDataManager GameDataManager;
 
     public static UserInputManager UserInputManager;
+
+    public static CommandManager CommandManager;
     public override void Init()
     {
         SoundManager = new SoundManager();
@@ -41,6 +43,7 @@ public class GameApp:Singleton<GameApp>
         MapManager = new MapManager();
         GameDataManager = new GameDataManager();
         UserInputManager = new UserInputManager();
+        CommandManager = new CommandManager();
     }
 
     public override void Update(float dt)
@@ -48,5 +51,6 @@ public class GameApp:Singleton<GameApp>
         TimerManager.OnUpdate(dt);
         FightWorldManager.Update(dt);
         UserInputManager.Update();
+        CommandManager.Update(dt);
     }
 }
