@@ -7,6 +7,7 @@ public enum GameState
 {
     Idle,
     Enter,
+    Player,
 }
 /// <summary>
 /// 战斗管理器（用于管理战斗相关的实体（敌人、英雄、地图、格子等））
@@ -48,7 +49,10 @@ public class FightWorldManager
         Debug.Log("Enemy objs length: " + objs.Length);
         for (int i = 0; i < objs.Length; i++)
         {
-            enemyList.Add(objs[i].GetComponent<Enemy>());
+            Enemy enemy = objs[i].GetComponent<Enemy>();
+            //当前位置被占用了，要把对应的方块类型设置为障碍物
+            GameApp.MapManager.ChangeBlockType(enemy.RowIndex, enemy.ColIndex, BlockType.Obstacle);
+            enemyList.Add(enemy);
         }
     }
 
@@ -76,6 +80,9 @@ public class FightWorldManager
                 break;
             case GameState.Enter:
                 _current = new FightEnter();
+                break;
+            case GameState.Player:
+                _current = new FightPlayerUnit();
                 break;
         }
 

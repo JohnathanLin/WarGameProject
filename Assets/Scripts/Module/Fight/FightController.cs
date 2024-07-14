@@ -29,6 +29,14 @@ public class FightController : BaseController
             Sorting_Order = 2,
         });
 
+        GameApp.ViewManager.Register(ViewType.TipView, new ViewInfo()
+        {
+            PrefabName = "TipView",
+            controller = this,
+            parentTf = GameApp.ViewManager.canvasTf,
+            Sorting_Order = 2,
+        });
+
         InitModuleEvent();
     }
     public override void InitModuleEvent()
