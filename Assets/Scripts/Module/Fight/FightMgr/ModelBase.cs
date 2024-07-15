@@ -18,6 +18,31 @@ public class ModelBase : MonoBehaviour
     public GameObject stopObj; //停止行动的标记物体
     public Animator ani; //动画组件
 
+    private bool _isStop; //是否移动完标记
+
+    public bool IsStop
+    {
+        get 
+        {
+            return _isStop; 
+        }
+        set 
+        {
+            stopObj.SetActive(value);
+
+            if (value == true)
+            {
+                bodySp.color = Color.gray;
+            } else
+            {
+                bodySp.color = Color.white;
+            }
+            _isStop = value;
+        }
+    }
+
+
+
     private void Awake()
     {
         bodySp = transform.Find("body").GetComponent<SpriteRenderer>();

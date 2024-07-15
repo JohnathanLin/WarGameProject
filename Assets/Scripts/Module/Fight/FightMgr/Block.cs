@@ -63,4 +63,11 @@ public class Block : MonoBehaviour
     {
         
     }
+
+    //设置箭头方向的图片资源 和 颜色
+    public void SetDirSp(Sprite sp, Color color)
+    {
+        dirSp.sprite = sp;
+        dirSp.color = color;
+    }
 }

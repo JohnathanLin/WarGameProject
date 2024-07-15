@@ -3,6 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+//格子显示方向的枚举，枚举字符串跟资源图片一致
+public enum BlockDirection 
+{
+    none = -1,
+    down,
+    horizontal,
+    left,
+    left_down,
+    left_up,
+    right,
+    right_down,
+    right_up,
+    up,
+    vertical,
+    max,
+}
+
 //地图管理器 管理地图的网格信息
 public class MapManager
 {
@@ -13,8 +30,16 @@ public class MapManager
     public int RowCount;
     public int ColCount;
 
+    public List<Sprite> dirSpArr; //存储箭头方向图片的集合
+
     public void Init()
     {
+        dirSpArr = new List<Sprite>();
+
+        for (int i = 0;i < (int)BlockDirection.max; i++)
+        {
+            dirSpArr.Add(Resources.Load<Sprite>($"Icon/{(BlockDirection)i}"));
+        }
         tileMap = GameObject.Find("Grid/ground").GetComponent<Tilemap>();
 
         //地图大小
@@ -82,5 +107,11 @@ public class MapManager
         {
             mapArr[points[i].RowIndex, points[i].ColIndex].HideGrid();
         }
+    }
+
+    //根据方向枚举 设置格子的方向图标和颜色
+    public void SetBlockDir(int rowIndex, int colIndex, BlockDirection dir, Color color)
+    {
+        mapArr[rowIndex, colIndex].SetDirSp(dirSpArr[(int)dir], color);
     }
 }
