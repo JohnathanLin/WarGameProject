@@ -23,7 +23,14 @@ public class ShowPathCommand : BaseCommand
         //点击鼠标后，确定移动的位置
         if (Input.GetMouseButtonDown(0))
         {
-            GameApp.MessageCenter.PostEvent(Defines.OnUnSelectEvent); //执行未选中
+            if (prePathList.Count > 0 && this.model.Step >= prePathList.Count - 1)
+            {
+                GameApp.CommandManager.AddCommand(new MoveCommand(this.model, this.prePathList)); //移动
+            }
+            else
+            {
+                GameApp.MessageCenter.PostEvent(Defines.OnUnSelectEvent);
+            }
 
 
             return true;
