@@ -15,7 +15,7 @@ public class OptionData
 /// </summary>
 public class FightModel : BaseModel
 {
-    List<OptionData> optionList;
+    public List<OptionData> optionList;
     public ConfigData optionConfig;
 
     public FightModel(BaseController ctl) : base(ctl)

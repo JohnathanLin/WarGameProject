@@ -49,6 +49,9 @@ public class MoveCommand : BaseCommand
 
                 GameApp.MapManager.ChangeBlockType(this.model.RowIndex, this.model.ColIndex, BlockType.Obstacle);
 
+                //显示选项界面
+                GameApp.ViewManager.Open(ViewType.SelectOptionView, this.model.data["Event"], (Vector2)this.model.transform.position);
+
                 return true;
             }
         }
