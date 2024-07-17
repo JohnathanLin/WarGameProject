@@ -40,7 +40,7 @@ public class ConfigData
         return datas[id];
     }
 
-    public Dictionary<int, Dictionary<string, string>> getLines()
+    public Dictionary<int, Dictionary<string, string>> GetLines()
     {
         return datas;
     }

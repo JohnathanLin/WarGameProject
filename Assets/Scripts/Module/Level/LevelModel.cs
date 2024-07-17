@@ -29,7 +29,7 @@ public class LevelModel : BaseModel
     {
         levelMap = new Dictionary<int, LevelData>();
         levelConfig = GameApp.ConfigManager.GetConfigData("level");
-        foreach (var item in levelConfig.getLines())
+        foreach (var item in levelConfig.GetLines())
         {
             LevelData l_data = new LevelData(item.Value);
             levelMap.Add(l_data.Id, l_data);
