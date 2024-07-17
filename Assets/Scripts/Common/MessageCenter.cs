@@ -109,7 +109,7 @@ public class MessageCenter
     {
         if (tmpMsgDic.ContainsKey(eventName))
         {
-            tmpMsgDic[eventName] += callback;
+            tmpMsgDic[eventName] = callback;
         } else
         {
             tmpMsgDic.Add(eventName, callback);

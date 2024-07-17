@@ -19,7 +19,7 @@ public class OptionItem : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(delegate()
         {
-            GameApp.MessageCenter.PostEvent(op_data.EventName); //执行配置表中设置的Event事件
+            GameApp.MessageCenter.PostTmpEvent(op_data.EventName); //执行配置表中设置的Event事件
             GameApp.ViewManager.Close(ViewType.SelectOptionView); //关闭选项界面
             
         });
