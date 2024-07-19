@@ -20,6 +20,11 @@ public class Enemy : ModelBase
     //бЁжа
     protected override void OnSelectCallBack(System.Object args)
     {
+        if (GameApp.CommandManager.IsRunningCommand)
+        {
+            return;
+        }
+
         base.OnSelectCallBack(args);
 
         GameApp.ViewManager.Open(ViewType.EnemyDesView, this);
