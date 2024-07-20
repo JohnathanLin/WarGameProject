@@ -23,6 +23,8 @@ public class FightOptionDesView : BaseView
     private void onChangeEnemyTurnBtn()
     {
         GameApp.ViewManager.Close(ViewType.FightOptionDesView);
+
+        GameApp.FightWorldManager.ChangeState(GameState.Enemy); //切换到敌人回合
     }
 
     private void onCancelBtn()

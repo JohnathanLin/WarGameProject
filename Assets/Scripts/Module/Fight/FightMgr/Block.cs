@@ -56,6 +56,7 @@ public class Block : MonoBehaviour
 
     void OnUnSelectCallBack(System.Object args)
     {
+
         dirSp.sprite = null;
         GameApp.ViewManager.Close(ViewType.FightOptionDesView);
 
