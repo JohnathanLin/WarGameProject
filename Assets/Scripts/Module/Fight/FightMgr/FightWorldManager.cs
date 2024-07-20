@@ -101,5 +101,11 @@ public class FightWorldManager
 
         heroList.Add(hero);
     }
+
+    //ÒÆ³ı¹ÖÎï
+    public void RemoveEnemy(Enemy enemy)
+    {
+        enemyList.Remove(enemy);
+    }
 }
 
