@@ -48,11 +48,16 @@ public class Block : MonoBehaviour
     void OnSelectCallBack(System.Object args)
     {
         GameApp.MessageCenter.PostEvent(Defines.OnUnSelectEvent);
+        if (GameApp.CommandManager.IsRunningCommand == false)
+        {
+            GameApp.ViewManager.Open(ViewType.FightOptionDesView);
+        }
     }
 
     void OnUnSelectCallBack(System.Object args)
     {
         dirSp.sprite = null;
+        GameApp.ViewManager.Close(ViewType.FightOptionDesView);
 
     }
 
