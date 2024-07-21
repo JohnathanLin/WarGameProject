@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public enum GameState
 {
@@ -110,6 +111,17 @@ public class FightWorldManager
     public void RemoveEnemy(Enemy enemy)
     {
         enemyList.Remove(enemy);
+
+        GameApp.MapManager.ChangeBlockType(enemy.RowIndex, enemy.ColIndex, BlockType.Null);
+    }
+
+
+    //“∆≥˝”¢–€
+    public void RemoveHero(Hero hero)
+    {
+        heroList.Remove(hero);
+
+        GameApp.MapManager.ChangeBlockType(hero.RowIndex, hero.ColIndex, BlockType.Null);
     }
 
     //÷ÿ÷√”¢–€––∂Ø
