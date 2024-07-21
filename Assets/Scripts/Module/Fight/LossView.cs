@@ -9,7 +9,7 @@ public class LossView : BaseView
     {
         base.OnStart();
 
-        Find<Button>("bg/okBtn").onClick.AddListener(delegate ()
+        Find<Button>("okBtn").onClick.AddListener(delegate ()
         {
             //卸载战斗中的资源
             GameApp.FightWorldManager.ReLoadRes();
