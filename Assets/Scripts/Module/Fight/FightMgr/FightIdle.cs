@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class FightIdle : FightUnitBase
 {
-    
+    public override void Init()
+    {
+        base.Init();
+    }
 }

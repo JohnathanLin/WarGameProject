@@ -10,6 +10,7 @@ public enum GameState
     Enter,
     Player,
     Enemy,
+    GameOver,
 }
 /// <summary>
 /// 战斗管理器（用于管理战斗相关的实体（敌人、英雄、地图、格子等））
@@ -89,6 +90,9 @@ public class FightWorldManager
             case GameState.Enemy:
                 _current = new FightEnemyUnit();
                 break;
+            case GameState.GameOver:
+                _current = new FightGameOverUnit();
+                break;
         }
 
         _current.Init();
@@ -113,6 +117,11 @@ public class FightWorldManager
         enemyList.Remove(enemy);
 
         GameApp.MapManager.ChangeBlockType(enemy.RowIndex, enemy.ColIndex, BlockType.Null);
+
+        if (enemyList.Count == 0)
+        {
+            ChangeState(GameState.GameOver);
+        }
     }
 
 
@@ -122,6 +131,12 @@ public class FightWorldManager
         heroList.Remove(hero);
 
         GameApp.MapManager.ChangeBlockType(hero.RowIndex, hero.ColIndex, BlockType.Null);
+
+
+        if (heroList.Count == 0)
+        {
+            ChangeState(GameState.GameOver);
+        }
     }
 
     //重置英雄行动
@@ -164,6 +179,15 @@ public class FightWorldManager
             }
         }
         return hero;
+    }
+
+    //卸载资源
+    public void ReLoadRes()
+    {
+        heroList.Clear();
+        enemyList.Clear();
+        GameApp.MapManager.Clear();
+
     }
 }
 

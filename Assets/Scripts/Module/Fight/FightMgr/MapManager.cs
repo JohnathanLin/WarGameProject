@@ -247,4 +247,12 @@ public class MapManager
         }
     }
 
+    //Çå¿Õ
+    public void Clear()
+    {
+        mapArr = null;
+        dirSpArr.Clear();
+
+    }
+
 }
