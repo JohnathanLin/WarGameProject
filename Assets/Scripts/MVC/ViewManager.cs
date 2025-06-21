@@ -213,7 +213,7 @@ public class ViewManager
     /// <param name="pos"></param>
     public void ShowHitNum(string num, Color color, Vector3 pos)
     {
-        GameObject obj = UnityEngine.Object.Instantiate(Resources.Load("View/HitNum"), worldCanvasTf) as GameObject;
+        GameObject obj = UnityEngine.Object.Instantiate(Resources.Load("View/HitNum"), canvasTf) as GameObject;
         obj.transform.position = pos;
         obj.transform.DOMove(pos + Vector3.up * 1.75f, 0.65f).SetEase(Ease.OutBack);
         UnityEngine.Object.Destroy(obj, 0.75f);

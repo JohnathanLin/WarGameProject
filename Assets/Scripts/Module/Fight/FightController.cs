@@ -27,7 +27,7 @@ public class FightController : BaseController
         {
             PrefabName = "DragHeroView",
             controller = this,
-            parentTf = GameApp.ViewManager.worldCanvasTf,
+            parentTf = GameApp.ViewManager.canvasTf,
             Sorting_Order = 2,
         });
 
