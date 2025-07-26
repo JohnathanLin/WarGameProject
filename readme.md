@@ -23,3 +23,9 @@ C酱提供的游戏资源地址：
 - [ ] TipsView使用
 - [ ] 命令模式
 - [ ] loading处理
+
+# 一些学习记录
+## View里的level_1 是瓦片地图
+去菜单栏：Window > 2D > Tile Palette 可以给瓦片地图上色
+
+到P9
